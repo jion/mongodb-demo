@@ -1,0 +1,2 @@
+ipdb==0.13.13
+mongoengine==0.28.2
