@@ -7,17 +7,14 @@ services:
     volumes:
       - mongo-data:/data/db
 
-  app:
+  jupyterlab:
     build: .
-    container_name: mongo-python-app
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./app/notebooks:/home/jovyan/work
     depends_on:
       - mongodb
-    volumes:
-      - ./app:/app
-    working_dir: /app
-    tty: true
-    stdin_open: true
-    entrypoint: [ "ipython" ]
 
 volumes:
   mongo-data:
